@@ -1,0 +1,27 @@
+/* primary button */
+
+.primary-button {
+	background-color: #8976fd;
+	border-radius: 15px;
+	border-width: 0;
+	color: white;
+	font-weight: 200;
+	font-family: 'Roboto';
+	padding: 18px 32px;
+	margin-top: 20px;
+	font-size: larger;
+	text-transform: uppercase;
+}
+
+/* secondary button */
+
+.secondary-button {
+	background-color: white;
+	border-radius: 15px;
+	border: #8976fd solid 1px;
+	color: white;
+	font-weight: 200;
+	padding: 18px 32px;
+	font-size: larger;
+	text-transform: uppercase;
+}

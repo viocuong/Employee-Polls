@@ -1,0 +1,15 @@
+.new-poll-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 0px;
+}
+
+.new-poll-title {
+	font-weight: 700;
+	color: #332c5c;
+}
+
+.new-poll-description {
+	color: #78758b;
+}

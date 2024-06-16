@@ -1,0 +1,37 @@
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	border-radius: 10px;
+}
+
+td,
+th {
+	border: 1px solid #dcdcdc;
+	text-align: left;
+	padding: 8px;
+}
+
+.leader-board-table-header {
+	background-color: #ececec;
+}
+
+.item-leaderboard {
+	display: flex;
+	column-gap: 3px;
+	align-items: center;
+}
+
+.item-leaderboard-info-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.item-leaderboard-name {
+	color: #332c5c;
+}
+
+.item-leaderboard-id {
+	color: #78758b;
+}

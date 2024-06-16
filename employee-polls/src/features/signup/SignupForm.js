@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import PropType from 'prop-types';
-import { PrimaryButton } from '../commons/PrimaryButton';
+import { PrimaryButton } from '../../commons/PrimaryButton';
 
 const initialSigninState = {
 	username: '',
 	password: '',
+	name: '',
 	confirmPassword: '',
 };
 
-export const LoginForm = ({ onSignup }) => {
+export const SignupForm = ({ onSignup }) => {
 	const [credentials, setCredentials] = useState(initialSigninState);
 	const [error, setError] = useState(); // error = 'not_enter' | 'confirm_pass_wrong'
 
@@ -22,6 +23,10 @@ export const LoginForm = ({ onSignup }) => {
 
 	const handleChangeConfirmPassword = (event) => {
 		setCredentials({ ...credentials, confirmPassword: event.target.value });
+	};
+
+	const handleChangeName = (event) => {
+		setCredentials({ ...credentials, name: event.target.value });
 	};
 
 	const signup = (event) => {
@@ -52,6 +57,12 @@ export const LoginForm = ({ onSignup }) => {
 				placeholder='username'
 			/>
 			<input
+				onChange={handleChangeName}
+				value={credentials.name}
+				className='signin-form-input'
+				placeholder='name'
+			/>
+			<input
 				onChange={handleChangePassword}
 				type='password'
 				value={credentials.password}
@@ -73,11 +84,11 @@ export const LoginForm = ({ onSignup }) => {
 				</p>
 			) : null}
 
-			<PrimaryButton title='signup' />
+			<PrimaryButton title='Sign Up' />
 		</form>
 	);
 };
 
-LoginForm.propTypes = {
+SignupForm.propTypes = {
 	onSignup: PropType.func.isRequired,
 };

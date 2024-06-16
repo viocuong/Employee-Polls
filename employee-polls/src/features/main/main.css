@@ -1,0 +1,30 @@
+.main-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.main-header {
+	display: flex;
+	align-self: stretch;
+	padding: 20px 20px;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+.main-navigation-bar {
+	display: flex;
+	column-gap: 10px;
+}
+
+.main-username {
+	color: #332c5c;
+	font-size: larger;
+	font-weight: 600;
+	margin-left: 10px;
+}
+
+.user-info-section {
+	display: flex;
+	align-items: center;
+}

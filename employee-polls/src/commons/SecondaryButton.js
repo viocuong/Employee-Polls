@@ -1,8 +1,8 @@
 import PropType from 'prop-types';
 
-export const SecondaryButton = ({ title, onClick }) => {
+export const SecondaryButton = ({ title, onClick, style }) => {
 	return (
-		<button onClick={onClick} className='secondary-button'>
+		<button style={style} onClick={onClick} className='secondary-button'>
 			{title}
 		</button>
 	);

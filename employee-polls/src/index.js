@@ -6,42 +6,20 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { persistor, store } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { LoginScreen } from './login/LoginScreen';
+import { LoginScreen } from './features/login/LoginScreen';
 import { ProtectedRoute } from './commons/ProtectedRoute';
-const router = createBrowserRouter([
-	// {
-	// 	path: '/signup',
-	// 	element: <SignupScreen />,
-	// },
-	{
-		path: '/login',
-		element: <LoginScreen />,
-	},
-	{
-		path: '/',
-		element: (
-			<ProtectedRoute>
-				<LoginScreen />
-			</ProtectedRoute>
-		),
-	},
-	// {
-	// 	path: '/book-detail/:bookId',
-	// 	element: (
-	// 		<ProtectedRoute>
-	// 			<BookDetailScreen />
-	// 		</ProtectedRoute>
-	// 	),
-	// },
-]);
-
+import '../src/commons/common.css';
+import SignupScreen from './features/signup/SignupScreen';
+import { MainScreen } from './features/main/MainScreen';
+import { HomeScreen } from './features/home/HomeScreen';
+import { NewPollScreen } from './features/newpoll/NewPollScreen';
+import { LoadingBar } from 'react-redux-loading-bar';
+import { App } from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<PersistGate loading={null} persistor={persistor}>
-				<RouterProvider router={router} />
-			</PersistGate>
+			<App />
 		</Provider>
 	</React.StrictMode>,
 );

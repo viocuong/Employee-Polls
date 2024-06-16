@@ -12,6 +12,7 @@ export const ListQuestions = ({ title, questions }) => {
 			<div className='list-question-body-container'>
 				{questions.map((question) => (
 					<ItemQuestion
+						key={question.id}
 						onShow={() => {
 							navigate(`/questions/${question.id}`);
 						}}

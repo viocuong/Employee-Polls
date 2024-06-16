@@ -42,19 +42,35 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'home',
-				element: <HomeScreen />,
+				element: (
+					<ProtectedRoute>
+						<HomeScreen />
+					</ProtectedRoute>
+				),
 			},
 			{
 				path: 'leaderboard',
-				element: <LeaderboardScreen />,
+				element: (
+					<ProtectedRoute>
+						<LeaderboardScreen />
+					</ProtectedRoute>
+				),
 			},
 			{
 				path: 'new',
-				element: <NewPollScreen />,
+				element: (
+					<ProtectedRoute>
+						<NewPollScreen />
+					</ProtectedRoute>
+				),
 			},
 			{
 				path: 'questions/:question_id',
-				element: <DetailQuestionScreen />,
+				element: (
+					<ProtectedRoute>
+						<DetailQuestionScreen />
+					</ProtectedRoute>
+				),
 			},
 		],
 	},

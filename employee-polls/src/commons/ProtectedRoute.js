@@ -7,13 +7,13 @@ import { useEffect } from 'react';
  * @param {ReactNode} children
  */
 export const ProtectedRoute = ({ children }) => {
-	console.log(`ProtectedRoute`);
 	const { isLoggedIn } = useSelector((state) => state.auth);
+	console.log(`ProtectedRoute: ${isLoggedIn}`);
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (!isLoggedIn) {
 			navigate('/login');
 		}
-	}, [isLoggedIn]);
-	return children;
+	});
+	return isLoggedIn && children;
 };

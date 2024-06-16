@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './index.css';
 import {
+	Link,
 	Navigate,
 	RouterProvider,
 	createBrowserRouter,
@@ -18,6 +19,7 @@ import { handleInitialData } from './features/main/actions';
 import { DetailQuestionScreen } from './features/detailquestion/DetailQuestionScreen';
 import { selectMain } from './features/main/selectors';
 import { Loading } from './commons/Loading';
+import { NotFoundScreen } from './features/notfound/NotFoundScreen';
 const router = createBrowserRouter([
 	{
 		path: '/signup',
@@ -30,11 +32,10 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: (
-			<ProtectedRoute>
-				<MainScreen />
-			</ProtectedRoute>
+			// <ProtectedRoute>
+			<MainScreen />
+			// </ProtectedRoute>
 		),
-		errorElement: <LoginScreen />,
 		children: [
 			{
 				index: true,
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
 				),
 			},
 			{
-				path: 'new',
+				path: 'add',
 				element: (
 					<ProtectedRoute>
 						<NewPollScreen />
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
 						<DetailQuestionScreen />
 					</ProtectedRoute>
 				),
+			},
+			{
+				path: '*',
+				element: <NotFoundScreen />,
 			},
 		],
 	},

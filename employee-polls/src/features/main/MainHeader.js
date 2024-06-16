@@ -7,10 +7,7 @@ import { selectUserLogged } from './selectors';
 
 export const MainHeader = () => {
 	const userLoggedIn = useSelector(selectUserLogged);
-	const navigate = useNavigate();
-	if (!userLoggedIn?.name) {
-		navigate('/login');
-	}
+
 	const dispatch = useDispatch();
 	const location = useLocation();
 
@@ -48,22 +45,24 @@ export const MainHeader = () => {
 					className={
 						!isNewSelected ? 'text-button-disable' : 'text-button'
 					}
-					to={'new'}
+					to={'add'}
 				>
 					New
 				</Link>
 			</div>
-			<div className='user-info-section'>
-				<img src={UserIcon} style={{ width: 60, height: 60 }} />
-				<p className='main-username'>{userLoggedIn?.name}</p>
-				<button
-					onClick={() => dispatch(logout())}
-					className='text-button'
-					style={{ marginLeft: 10 }}
-				>
-					Logout
-				</button>
-			</div>
+			{userLoggedIn && (
+				<div className='user-info-section'>
+					<img src={UserIcon} style={{ width: 60, height: 60 }} />
+					<p className='main-username'>{userLoggedIn?.name}</p>
+					<button
+						onClick={() => dispatch(logout())}
+						className='text-button'
+						style={{ marginLeft: 10 }}
+					>
+						Logout
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };

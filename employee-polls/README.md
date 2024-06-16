@@ -1,36 +1,16 @@
 # Getting Started with Employee Polls App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project description
 
-## Available Scripts
+You have been asked by the HR department of your company to build an application that employees can use internally. In order to improve collaboration and transparency within the company, every employee can access the application and create a poll with two proposed solutions. Employees can then vote on these solutions and see which solutions have the most votes. In addition, HR has requested you have a dashboard that lists every employee ordered by the number of polls they've created and answered. To give employees incentive to use your application, HR will give a prize each quarter for the top employees who have created and answered the most polls.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+In the project directory, you need run:
+`npm install`
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-# Functions
-
--   Login: Login information is taken from \_DATA.js file.
--   Signup: Provide registration functionality, so the login screen will not need the impersonator selection dialog.
--   Implemented features list-up in Project Rubric.
--   Use redux toolkit for state management.
--   Write UT and react element test in: **test**/App.test.js
+And `npm run test` for run tests.

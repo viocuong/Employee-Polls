@@ -48,7 +48,10 @@ export const NewPollForm = () => {
 				className='signin-form-input'
 				placeholder='Option Two'
 			/>
-			<PrimaryButton title='Submit' />
+			<PrimaryButton
+				disabled={!question.optionTwoText || !question.optionOneText}
+				title='Submit'
+			/>
 		</form>
 	);
 };

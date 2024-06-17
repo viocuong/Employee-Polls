@@ -1,15 +1,17 @@
 import './detailquestion.css';
 import Avatar from '../../assets/avatar.png';
-import { useParams } from 'react-router-dom';
+import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectQuestion, selectUserLogged } from '../main/selectors';
 import { ItemOption } from './ItemOption';
 import { answerQuestion } from '../main/actions';
 import { useMemo } from 'react';
+import { NotFoundScreen } from '../notfound/NotFoundScreen';
 
 export const DetailQuestionScreen = () => {
 	const dispatch = useDispatch();
 	const userLoggedIn = useSelector(selectUserLogged);
+	const location = useLocation();
 	const { question_id } = useParams();
 	const question = useSelector((state) => selectQuestion(state, question_id));
 	const answerForThisQuestion = userLoggedIn.answers[question_id];
@@ -30,6 +32,7 @@ export const DetailQuestionScreen = () => {
 		percentageOftionOne,
 		percentageOftionTwo,
 	] = useMemo(() => {
+		if (!question) return [0, 0, 0, 0];
 		const numberOfOne = question.optionOne.votes.length;
 		const numberOfTwo = question.optionTwo.votes.length;
 		const totalOption = numberOfOne + numberOfTwo;
@@ -37,7 +40,9 @@ export const DetailQuestionScreen = () => {
 		const percentageTwo = 100 - percentageOne;
 		return [numberOfOne, numberOfTwo, percentageOne, percentageTwo];
 	}, [question]);
-
+	if (!question) {
+		return <NotFoundScreen />;
+	}
 	return (
 		<div className='detail-question-container'>
 			<h1 className='detail-question-title'>Poll by {question.author}</h1>

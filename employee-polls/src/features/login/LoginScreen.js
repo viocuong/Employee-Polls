@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LoginForm } from './LoginForm';
 import employeePolls from '../../assets/employee-engagement-survey.jpg';
 import './login.css';
@@ -8,11 +8,12 @@ import { login } from './actions';
 export const LoginScreen = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const { state } = useLocation();
 	const handleLogin = (credentials) => {
 		dispatch(login(credentials))
 			.unwrap()
 			.then(() => {
-				navigate('/');
+				navigate(state?.path || '/');
 			})
 			.catch((e) => {
 				alert(

@@ -6,13 +6,13 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="primary-button"
+        class="primary-button false"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="primary-button"
+      class="primary-button false"
     />
   </div>,
   "debug": [Function],

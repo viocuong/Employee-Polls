@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -10,10 +10,10 @@ export const ProtectedRoute = ({ children }) => {
 	const { isLoggedIn } = useSelector((state) => state.auth);
 	console.log(`ProtectedRoute: ${isLoggedIn}`);
 	const navigate = useNavigate();
-	useEffect(() => {
-		if (!isLoggedIn) {
-			navigate('/login');
-		}
-	});
-	return isLoggedIn && children;
+	const location = useLocation();
+	return !isLoggedIn ? (
+		<Navigate to='/login' replace state={{ path: location.pathname }} />
+	) : (
+		children
+	);
 };

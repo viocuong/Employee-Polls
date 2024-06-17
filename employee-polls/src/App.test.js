@@ -2,16 +2,16 @@ import {
 	hideLoading,
 	receivedQuestions,
 	showLoading,
-} from '../src/features/main/slice';
-import { multiply } from '../src/multiply';
-import mainReducer from '../src/features/main/slice';
-import homeReducer, { changedFilterType } from '../src/features/home/slice';
-import authReducer, { logout } from '../src/features/login/AuthSlice';
-import { _saveQuestion, _saveQuestionAnswer } from '../src/utils/_DATA';
+} from './features/main/slice';
+import { multiply } from './multiply';
+import mainReducer from './features/main/slice';
+import homeReducer, { changedFilterType } from './features/home/slice';
+import authReducer, { logout } from './features/login/AuthSlice';
+import { _saveQuestion, _saveQuestionAnswer } from './utils/_DATA';
 import { fireEvent, render } from '@testing-library/react';
-import { LoginScreen } from '../src/features/login/LoginScreen';
-import { PrimaryButton } from '../src/commons/PrimaryButton';
-import { ItemQuestion } from '../src/features/home/ItemQuestion';
+import { LoginScreen } from './features/login/LoginScreen';
+import { PrimaryButton } from './commons/PrimaryButton';
+import { ItemQuestion } from './features/home/ItemQuestion';
 describe('multiply', () => {
 	it('will return the product of both numbers passed', () => {
 		expect(multiply(2, 3)).toEqual(6);
